@@ -1,0 +1,39 @@
+# Site settings
+title: "Blockchaintools"
+email: "blockchaintools@smaks.be"
+description: "Blockchaintools"
+keywords: "blockchain, tools"
+url: "https://blockchaintools.io" # the base hostname & protocol for your site
+twitter_username: blockchaintools_io
+github_username:  blockchaintools
+gtm_id: ""
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Build settings
+markdown: kramdown
+
+exclude:
+  - .git/
+  - .github/
+  - assets/scss/
+  - build/
+  - js/
+  - node_modules/
+  - scss/
+  - vendor/
+  - Gemfile
+  - Gemfile.lock
+  - package.js
+  - package.json
+  - package-lock.json
+  - README.md
+
+baseurl: "/" # the subpath of your site, e.g. /blog/
+toolsurl: "/tools"
+vendorsurl: "/assets/vendor"
+imgurl: "/assets/img"
+imageurl: "/assets/img"
+cssurl: "/assets/css"
+jsurl: "/assets/js"

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"{% if page.html_class %} class="{{ page.html_class }}"{% endif %}>
+  <head>
+
+    {% include head.html %}
+
+    {%- for css in page.extra_css %}
+    <!-- Custom styles for this template -->
+    <link href="{{ css }}" rel="stylesheet">
+    {%- endfor %}
+  </head>
+  <body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
+
+    {{ content }}
+
+    {%- if page.include_js != false -%}
+      {% include scripts.html %}
+
+      {%- for js in page.extra_js %}
+        <script src="{{ js }}"></script>
+      {%- endfor %}
+    {%- endif -%}
+  </body>
+</html>
