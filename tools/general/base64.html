@@ -1,6 +1,6 @@
 ---
-title: Base58
-page: general-base58
+title: Base64
+page: general-base64
 layout: dashboard
 ---
 
@@ -15,11 +15,11 @@ layout: dashboard
             dest.value = srcValue;
 
         };
-        window.page.base58 = {
+        window.page.base64 = {
             encode: function() {
                 var val = document.querySelector('#src').value || '';
                 try {
-                    document.querySelector('#dest').value = tools.Base58.encodeString(val);
+                    document.querySelector('#dest').value = tools.Base64.encode(val);
                 } catch(e) {
                     var log = document.querySelector('#logs');
                     log.value = e + '\n\n' + log.value;
@@ -30,7 +30,7 @@ layout: dashboard
             decode: function() {
                 var val = document.querySelector('#src').value || '';
                 try {
-                    document.querySelector('#dest').value = tools.Base58.decode(val);
+                    document.querySelector('#dest').value = tools.Base64.decode(val);
                 } catch(e) {
                     var log = document.querySelector('#logs');
                     log.value = e + '\n' + log.value;
@@ -41,7 +41,7 @@ layout: dashboard
     }, false);
 </script>
 <div class="container">
-    <h2>Base58</h2>
+    <h2>Base64</h2>
     <div class="row">
         <div class="col-12 col-md-5">
             <div class="form-group">
@@ -49,8 +49,8 @@ layout: dashboard
                 <textarea id="src" class="form-control" rows="20"></textarea>
             </div>
             <div class="form-group">
-                <a class="btn btn-primary" href="javascript:page.base58.encode()">Encode</a>
-                <a class="btn btn-primary" href="javascript:page.base58.decode()">Decode</a>
+                <a class="btn btn-primary" href="javascript:page.base64.encode()">Encode</a>
+                <a class="btn btn-primary" href="javascript:page.base64.decode()">Decode</a>
             </div>
         </div>
         <div class="col-12 col-md-2 align-items-center justify-content-center d-flex">

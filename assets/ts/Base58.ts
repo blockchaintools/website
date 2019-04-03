@@ -6,17 +6,17 @@ export class Base58 {
 
     private static readonly baseX = baseX(Base58.ALPHABET);
 
-    public static decode(str: string) {
-        return Base58.baseX.decode(str);
+    public static decode(input: string) {
+        return Base58.baseX.decode(input);
     }
 
-    public static encode(buffer: Buffer) {
-        return Base58.baseX.encode(buffer);
+    public static encode(input: Buffer) {
+        return Base58.baseX.encode(input);
     }
 
-    public static encodeString(str: string) {
+    public static encodeString(input: string) {
         try {
-            const buffer = new Buffer(str);
+            const buffer = new Buffer(input);
             return Base58.baseX.encode(buffer);
         } catch (e) {
             console.error(e);
