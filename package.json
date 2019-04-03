@@ -25,7 +25,8 @@
     "normalize.css": "8.0.1",
     "run-sequence": "^2.2.1",
     "ssri": "^6.0.1",
-    "strip-json-comments": "^2.0.1"
+    "strip-json-comments": "^2.0.1",
+    "webpack-cli": "^3.3.0"
   },
   "engines": {
     "node": ">=6",
@@ -35,7 +36,8 @@
   "license": "MIT",
   "name": "blockchaintools",
   "scripts": {
-    "run": "bundle exec jekyll serve"
+    "run": "bundle exec jekyll serve",
+    "build-js": "npx webpack --mode production"
   },
   "version": "7.1.0",
   "description": "A professional front-end template for building fast, robust, and adaptable web apps or sites.",
@@ -52,6 +54,13 @@
     "url": "https://github.com/blockchaintools/website.git"
   },
   "dependencies": {
-    "bootstrap": "^4.3.1"
+    "@types/base-x": "^3.0.0",
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "awesome-typescript-loader": "^5.2.1",
+    "base-x": "^3.0.5",
+    "bootstrap": "^4.3.1",
+    "typescript": "^3.4.1",
+    "webpack": "^4.29.6"
   }
 }

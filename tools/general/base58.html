@@ -1,0 +1,60 @@
+---
+title: Base58
+page: general-base58
+layout: dashboard
+---
+
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        window.base58 = {
+            encode: function() {
+                var val = document.querySelector('#src').value || '';
+                try {
+                    document.querySelector('#dest').value = tools.Base58.encodeString(val);
+                } catch(e) {
+                    var log = document.querySelector('#logs');
+                    log.value = e + '\n\n' + log.value;
+                    console.log(e);
+                }
+
+            },
+            decode: function() {
+                var val = document.querySelector('#src').value || '';
+                try {
+                    document.querySelector('#dest').value = tools.Base58.decode(val);
+                } catch(e) {
+                    var log = document.querySelector('#logs');
+                    log.value = e + '\n' + log.value;
+                    console.log(e);
+                }
+            }
+        }
+    }, false);
+</script>
+<div class="container">
+    <h2>Base58</h2>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                <label>Insert text here</label>
+                <textarea id="src" class="form-control" rows="20"></textarea>
+            </div>
+            <div class="form-group">
+                <a class="btn btn-primary" href="javascript:base58.encode()">Encode</a>
+                <a class="btn btn-primary" href="javascript:base58.decode()">Decode</a>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                <label>Result</label>
+                <textarea id="dest" class="form-control" rows="20"></textarea>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-group">
+                <label>Error Log</label>
+                <textarea id="logs" style="font-family: sans-serif; font-size: small" class="form-control" rows="10"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
