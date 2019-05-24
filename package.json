@@ -1,5 +1,7 @@
 {
   "devDependencies": {
+    "@types/bip38": "^2.0.1",
+    "@types/wif": "^2.0.1",
     "apache-server-configs": "^3.1.0",
     "archiver": "^3.0.0",
     "babel-core": "^6.26.3",
@@ -59,8 +61,10 @@
     "@types/mocha": "^5.2.6",
     "awesome-typescript-loader": "^5.2.1",
     "base-x": "^3.0.5",
+    "bip38": "^2.0.2",
     "bootstrap": "^4.3.1",
     "typescript": "^3.4.1",
-    "webpack": "^4.29.6"
+    "webpack": "^4.29.6",
+    "wif": "^2.0.6"
   }
 }

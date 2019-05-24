@@ -1,0 +1,76 @@
+---
+title: Bitcoin
+page: bitcoin-bip38-to-wif
+layout: dashboard
+---
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        window.page = window.page || {};
+        window.page.switch = function() {
+            var src = document.querySelector('#src');
+            var dest = document.querySelector('#dest');
+            var srcValue = src.value;
+            src.value = dest.value;
+            dest.value = srcValue;
+
+        };
+        window.page.bitcoin = {
+            BIP38toWIF: function() {
+                var val = document.querySelector('#src').value || '';
+                var valPass = document.querySelector('#src-password').value || '';
+                try {
+                    document.querySelector('#dest').value = tools.Bitcoin.BIP38toWIF(val, valPass);
+                } catch(e) {
+                    var log = document.querySelector('#logs');
+                    log.value = e + '\n\n' + log.value;
+                    console.log(e);
+                }
+
+            },
+            decode: function() {
+                var val = document.querySelector('#src').value || '';
+                try {
+                    document.querySelector('#dest').value = tools.Bitcoin.decode(val);
+                } catch(e) {
+                    var log = document.querySelector('#logs');
+                    log.value = e + '\n' + log.value;
+                    console.log(e);
+                }
+            }
+        };
+    }, false);
+</script>
+<div class="container">
+    <h2>BIF38 - WIF (encode / decode)</h2>
+    <div class="row">
+        <div class="col-12 col-md-5">
+            <div class="form-group">
+                <label>Insert text here</label>
+                <input id="src" value="6PRShuFZnCi5TZ2su87Mp44nANnR6gwg9sFnKnriigWgeGezynBHkBpJoG" class="form-control" />
+                <input id="src-password" value="1111" class="form-control" placeholder="password" />
+            </div>
+            <div class="form-group">
+                <a class="btn btn-primary" href="javascript:page.bitcoin.BIP38toWIF()">Encode BIP38 to WIF</a>
+                <a class="btn btn-primary" href="javascript:page.bitcoin.WIFtoBIP38()">Decode WIF to BIP38</a>
+            </div>
+        </div>
+        <div class="col-12 col-md-2 align-items-center justify-content-center d-flex">
+            <a class="btn btn-outline-primary" href="javascript:page.switch()"><i class="fas fa-exchange-alt"></i></a>
+        </div>
+        <div class="col-12 col-md-5">
+            <div class="form-group">
+                <label>Result</label>
+                <textarea id="dest" class="form-control" rows="20"></textarea>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-group">
+                <label>Error Log</label>
+                <textarea id="logs" style="font-family: sans-serif; font-size: small" class="form-control" rows="10"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+

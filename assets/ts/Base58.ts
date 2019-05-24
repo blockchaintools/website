@@ -15,12 +15,7 @@ export class Base58 {
     }
 
     public static encodeString(input: string) {
-        try {
-            const buffer = new Buffer(input);
-            return Base58.baseX.encode(buffer);
-        } catch (e) {
-            console.error(e);
-            return '';
-        }
+        const buffer = new Buffer(input);
+        return Base58.baseX.encode(buffer);
     }
 }
